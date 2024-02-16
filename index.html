@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>แก้ไขข้อมูล</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"
+    integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>  
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.12.6/dist/sweetalert2.all.min.js"></script>
+  <link href='style.css' rel='stylesheet'>
+</head>
+
+<body>
+  <div id="formregis">
+    <div class="container">
+      <div class="container2">
+        <div class="login col-md-6">
+          <br/>
+          <!-- <h1><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-ui-checks" viewBox="0 0 16 16">
+            <path d="M7 2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-7a.5.5 0 0 1-.5-.5v-1zM2 1a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2H2zm0 8a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2v-2a2 2 0 0 0-2-2H2zm.854-3.646a.5.5 0 0 1-.708 0l-1-1a.5.5 0 1 1 .708-.708l.646.647 1.646-1.647a.5.5 0 1 1 .708.708l-2 2zm0 8a.5.5 0 0 1-.708 0l-1-1a.5.5 0 0 1 .708-.708l.646.647 1.646-1.647a.5.5 0 0 1 .708.708l-2 2zM7 10.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-7a.5.5 0 0 1-.5-.5v-1zm0-5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm0 8a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5z"/>
+          </svg>  -->
+          <h1>  ข้อมูลการลงทะเบียน</h1>
+          <h5 id="sch_n3" style="margin-bottom:10px;margin-top:5px;" class="mt-1 text-center  text-dark fw-bold"></h5>
+          <form class="needs-validation" novalidate id="user_form" onsubmit="getAllElmFormEdit(this)">
+            <div class="input-box">
+                <input type="text" class="form-control" id="mid" name="mid" placeholder="รหัสประจำตัว" readonly>
+              </div>
+            <div class="input-box">
+                    <select class="form-control"  id="prefix" name="prefix"  required>
+                        <option  selected >คำนำหน้า</option>
+                        <option value="นาย">นาย</option>
+                        <option value="นาง">นาง</option>
+                        <option value="นางสาว">นางสาว</option>
+                    </select>
+              </div>
+              <div class="input-box">
+                <input type="text" class="form-control" id="fname" name="fname" placeholder="ชื่อ" required>
+              </div>
+              <div class="input-box">
+                <input type="text" class="form-control" id="lname" name="lname" placeholder="นามสกุล" required>
+              </div>
+
+              <div class="input-box">
+                <input type="email" class="form-control" id="email" name="email" placeholder="อีเมล" required>
+              </div>
+              <div class="input-box">
+                <input type="file" class="form-control" id="file_image" name="file_image" onchange="fileValidation()" placeholder="รูปโปรไฟล์">     
+              </div>
+              <div class="input-box" id="imgbox">
+                <div class="row mx-auto">
+                  <img class="" id="picdata" src="" width="170px">
+                  <p class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="file_input_help"></p>
+                </div>
+              </div>    
+              <!-- <div class="input-box"> -->
+                <div class="form-check">
+                  <input class="form-check-input text-dark" type="checkbox" value="ยินยอม" name="agreement" id="agreement" required>
+                  <label class="form-check-label" for="flexCheckDefault">
+                    ยินยอม สำหรับการให้นำข้อมูลไปใช้เพื่อกิจกรรมของระบบนี้
+                  </label>
+                </div>   
+              <!-- </div> -->
+                <button type="submit" id="btn_1" class="btn btn-warning "><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-cloud-arrow-up-fill" viewBox="0 0 16 16">
+                  <path d="M8 2a5.53 5.53 0 0 0-3.594 1.342c-.766.66-1.321 1.52-1.464 2.383C1.266 6.095 0 7.555 0 9.318 0 11.366 1.708 13 3.781 13h8.906C14.502 13 16 11.57 16 9.773c0-1.636-1.242-2.969-2.834-3.194C12.923 3.999 10.69 2 8 2zm2.354 5.146a.5.5 0 0 1-.708.708L8.5 6.707V10.5a.5.5 0 0 1-1 0V6.707L6.354 7.854a.5.5 0 1 1-.708-.708l2-2a.5.5 0 0 1 .708 0l2 2z"/>
+                </svg> บันทึกแก้ไขข้อมูล</button>
+                <button class="btn" style="color: #55048c; display: none;" type="submit" id="btn_2"  disabled>
+                  <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                  กรุณารอซักครู่
+                </button>
+            <div class="links">
+              <!-- <a href="#">ลงชื่อเข้าใช้</a> -->
+              <a href="#" id="btn-login"><i class="fa-solid fa-user-plus"></i> ลงชื่อเข้าใช้</a>
+            </div>
+          </form>
+        </div><!-- End Login -->
+      </div>
+    </div>
+  </div>
+
+</body>
+<script src="/script.js"></script>
+<script src="/save.js"></script>
+<script src="/preventFormSubmit.js"></script>
+</html>

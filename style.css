@@ -1,0 +1,190 @@
+@import url('https://fonts.googleapis.com/css2?family=Prompt&display=swap');
+
+* {
+    font-family: 'Kanit', sans-serif;
+    /* font-size: 1.2rem; */
+}
+body {
+    /* background-image: url('https://i.ibb.co/jrBxqD3/wallpaper.jpg'); */
+    /* background-image: url('https://library.wu.ac.th/km/wp-content/uploads/sites/9/2023/03/th1642053984-1036.jpeg'); */
+    /* background-size: auto; */
+    background-repeat: no-repeat;
+    height: 200%;
+    padding: 20px 0;
+  }
+.container2 {
+    position: relative;
+    /* margin-top: -60px;
+    min-height: 100vh; */
+    overflow: show;
+    display: grid;
+    place-items: center;
+}
+.login {
+    position: relative;
+    top: 2%;
+    width: 350px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 15px;
+    z-index: 10;
+    backdrop-filter: blur(25px) contrast(1);
+    -webkit-backdrop-filter: blur(25px) contrast(1);
+    box-shadow: 10px 10px 40px rgba(0, 0, 0, 0.2),
+      -10px -10px 40px rgba(0, 0, 0, 0.2);
+  }
+  @media (max-width:480px) {
+    .login {
+      width: 90%;
+    }
+  }
+
+  .login h1 {
+    font-size: 1.8rem;
+    /* color: #608000; */
+    color: #55048c;
+    margin-bottom: 5px;
+    margin-top: 0;
+    text-align: center;
+    weight: bold;
+  }
+
+  .login form {
+    width: 100%;
+    height: 100%;
+    outline: none;
+    border: none;
+  }
+
+  .login form .input-box {
+    width: 100%;
+    position: relative;
+    margin-bottom: 10px;
+    display: flex;
+  }
+
+
+  .login form .input-box input {
+    width: 100%;
+    border: none;
+    padding: 1rem 2.7rem 1rem 1rem;
+    border-radius: 10px;
+    color: #201f1f;
+    background-color: rgba(234, 238, 238, 0.856);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+  }
+  .login form .input-box select {
+    width: 100%;
+    border: none;
+    padding: 1rem 2.7rem 1rem 1rem;
+    border-radius: 10px;
+    color: #201f1f;
+    background-color: rgba(234, 238, 238, 0.856);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+  }
+
+  .login form .input-box input::placeholder {
+    color: #55048c;
+    font-size: 1.1rem;
+    transition: 0.5s ease;
+  }
+
+  .login form .input-box input:focus::placeholder {
+    opacity: 0;
+  }
+
+  .login form .input-box input:focus {
+    outline: none;
+  }
+
+  .login form .input-box i {
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    color: #f1ecec;
+    font-size: 1.2rem;
+  }
+
+  .login form .rembar {
+    margin-bottom: 20px;
+    width: 100%;
+  }
+
+  .login form .rembar input {
+    appearance: none;
+  }
+
+  .login form .rembar label {
+    color: #fff;
+    position: relative;
+    width: 100%;
+    padding-left: 35px;
+    font-size: 0.9rem;
+  }
+
+  .login form .rembar label::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+
+  .login form .rembar label::after {
+    content: "";
+    position: absolute;
+    left: 4px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background-color: #fff;
+    transition: 0.5 ease;
+    opacity: 0;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  }
+
+  .login form .rembar input:checked+label::after {
+    opacity: 1;
+  }
+
+  .login form button {
+    width: 100%;
+    border: none;
+    padding: 1rem 1rem 1rem 1rem;
+    border-radius: 10px;
+    color: #fff;
+    margin-bottom: 10px;
+    background-color: #55048c;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    transition: 0.5s ease;
+    cursor: pointer;
+    font-weight: 600;
+    text-align: center;
+    font-size: 18px;
+  }
+
+  .login form button:hover {
+    /* background-color: #898e8e; */
+    background-color: #fcc200;
+  }
+
+  .login form .links {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+  }
+
+  .login form .links a {
+    color: #fff;
+    font-weight: 100;
+    font-size: 0.7rem;
+  }
