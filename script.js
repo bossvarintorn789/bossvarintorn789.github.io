@@ -4,7 +4,7 @@ let uid,uname,picture,xos,emailL
 
 $(document).ready(function () {
  
-    const liffId = "2001097905-kV6Wgv3N";    // Liff Id เงินทอน/EditInfo  2001097905-WGBQ6weJ
+    const liffId = "2001097905-WGBQ6weJ";    // Liff Id เงินทอน/EditInfo  2001097905-WGBQ6weJ
     initializeLiff(liffId);
     
 
